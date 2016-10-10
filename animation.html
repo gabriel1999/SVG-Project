@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+  </head>
+
+
+<body>
+
+<center>
+
+  <h1 id=zombiejump> ZOMBIE JUMP </h1>
+
+  <ul>
+      <li> <a href="#game"> Play</a> <br  /> </li>
+  </ul>
+
+
+  <p> Inspired by the retro video game Super Mario, <strong>Rico Storm</strong> has to do
+      what Mario and Luigi couldn't, save the princess. Below is a simulation
+      of the first Level of the game. As Rico, the player has to travel through
+      different environments and dodge zombies before finding the princess. Before
+      leaving the world, Rico Storm has to obtain a key to open the gate.
+      <br  /> In each level, different types of interactive animals may rome the
+      world. </p>
+
+
+  <h2 id=game> Level 1 </h2>
+
+
+  <svg width="65%" viewBox="0 0 630 400">
+
+
+    <image x="0" y="0" width="960" height="540" xlink:href="https://www.xmple.com/wallpaper/blue-white-gradient-linear-1920x1080-c2-1e90ff-fdf5e6-a-150-f-14.svg"/>
+
+
+  // interactive bird (hover)
+    <image x="0" y="100" width="150" height="37.5" xlink:href="https://lh3.googleusercontent.com/-y2LJYnIQAy8/Vbi-N9KVKfI/AAAAAAAAeS8/FbZ7RLXdxpE/w426-h320/papa%25C4%259Fan.gif">
+                <animate id="hoverbird"
+                        attributeName="x"
+                        from="0"
+                        to="650"
+                        dur="7.5s"
+                        repeatCount="1"
+                        begin="mouseover"/>
+        </image>
+
+
+// Sprite start.
+      <image x="645" y="320" width="60" height="60" xlink:href="http://static1.squarespace.com/static/516fe874e4b035dc80eedeee/53ef72e3e4b0b335a20eb20f/53f07434e4b05292018d71df/1408267317141/enemy_walking.gif">
+               <animate id="ballroll"
+                        attributeName="x"
+                        from="645"
+                        to="-40"
+                        dur="6.5s"
+                        repeatCount="1"
+                        begin="0s;ballroll5.end"  />
+               <set     attributeName='opacity'
+                        begin="ballroll.end"
+                        to='1'/>
+               <animate id="ballroll2"
+                        attributeName="x"
+                        from="645"
+                        to="250"
+                        dur="2.5s"
+                        repeatCount="1"
+                        begin="ballroll.end"/>
+               <animate id="ballroll2"
+                        attributeName="y"
+                        from="195"
+                        to="195"
+                        dur="4.5s"
+                        repeatCount="1"
+                        begin="ballroll.end"/>
+               <animate id="jump"
+                        attributeName="y"
+                        from="195"
+                        to="100"
+                        dur="1s"
+                        repeatCount="1"
+                        begin="ballroll2.end"/>
+               <animate id="jump"
+                        attributeName="x"
+                        from="260"
+                        to="155"
+                        dur="1s"
+                        repeatCount="1"
+                        begin="ballroll2.end"/>
+               <animate id="ballroll3"
+                        attributeName="x"
+                        from="155"
+                        to="-45"
+                        dur="1.5s"
+                        repeatCount="1"
+                        begin="jump.end"/>
+               <animate id="ballroll3"
+                        attributeName="y"
+                        from="100"
+                        to="100"
+                        dur="2.5s"
+                        repeatCount="1"
+                        begin="jump.end"/>
+               <animate id="ballroll4"
+                        attributeName="x"
+                        from="640"
+                        to="200"
+                        dur="4.5s"
+                        repeatCount="1"
+                        begin="ballroll3.end"/>
+               <animate id="ballroll4"
+                        attributeName="y"
+                        from="10"
+                        to="10"
+                        dur="4.5s"
+                        repeatCount="1"
+                        begin="ballroll3.end"/>
+               <animate id="ballroll5"
+                        attributeName="x"
+                        from="200"
+                        to="-45"
+                        dur="4.5s"
+                        repeatCount="1"
+                        begin="ballroll4.end"/>
+               <animate id="ballroll5"
+                        attributeName="y"
+                        from="10"
+                        to="10"
+                        dur="4.5s"
+                        repeatCount="1"
+                        begin="ballroll4.end"/>
+
+      </image>
+
+
+  // Zombie
+    <image x="645" y="205" width="60" height="60" xlink:href="http://www.mineimatorforums.com/uploads/monthly_2016_04/animaatjes-minecraft-3005256.gif.f8329781b7bcd82fc8348a4bc8b9fee1.thumb.gif.9eae0a92b36bf773755c5a985775ff9c.gif">
+           <animate id="zombie"
+                    attributeName="x"
+                    from="-50"
+                    to="640"
+                    dur="9.5s"
+                    repeatCount="1"
+                    begin="ballroll.end"/>
+   </image>
+
+
+
+// Key Circle
+    <circle cx="200" cy="42" r="12" fill="gold" opacity="0.7">
+           <animate id="sizeup"
+                    attributeName="r"
+                    from="12"
+                    to="15"
+                    dur="0.5s"
+                    repeatCount="1"
+                    begin="0s;sizedown.end"/>
+           <animate id="sizedown"
+                    attributeName="r"
+                    from="15"
+                    to="12"
+                    dur="0.5s"
+                    repeatCount="1"
+                    begin="sizeup.end"/>
+          <set      attributeName='opacity'
+                    begin="ballroll4.end"
+                    from="1"
+                    to='0'
+                    dur="3s"
+                    repeatCount="1"/>
+    </circle>
+
+
+// gate movement
+    <rect x="100" y="0" width="15" height="100" fill="#424949">
+           <animate id="gateopen"
+                    attributeName="height"
+                    from="100"
+                    to="2"
+                    dur="2.1s"
+                    begin="ballroll4.end"
+                    repeatCount="1"/>
+           <animate id="gateclose"
+                    attributeName="height"
+                    from="2"
+                    to="100"
+                    dur="2.5s"
+                    begin="gateopen.end"
+                    repeatCount="1"/>
+  </rect>
+
+
+
+// Floor.
+    <image x="0" y="336" width="1759" height="75" xlink:href="Images\5161250_orig.gif"/>
+    <image x="0" y="213" width="1759" height="75" xlink:href="Images\5161250_orig.gif"/>
+    <image x="-1580" y="120" width="1759" height="75" xlink:href="Images\5161250_orig.gif"/>
+    <image x="0" y="30" width="1759" height="75" xlink:href="Images\5161250_orig.gif"/>
+
+
+
+// interactive worm (click)
+<image x="10" y="374" width="30" height="30" xlink:href="http://24.media.tumblr.com/tumblr_m522uwAp6C1qfa1jdo1_r1_400.gif">
+           <animate id="clickworm"
+                    attributeName="x"
+                    from="10"
+                    to="650"
+                    dur="7.5s"
+                    repeatCount="1"
+                    begin="click"/>
+  </image>
+
+
+</svg>
+<ul>
+    <li> <a href="#zombiejump"> Top </a> <br  /> </li>
+</ul>
+
+</body>
